@@ -1,4 +1,4 @@
 package com.blog.dao;
 
-public class UserDao {
+public interface UserDao {
 }

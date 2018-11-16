@@ -1,5 +1,4 @@
 package com.blog.service;
 
-public class UserService {
+public class EssayService {
 }
-
