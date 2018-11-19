@@ -1,5 +1,12 @@
 package com.blog.service;
 
-public class UserService {
-}
+import java.util.Map;
 
+public interface UserService {
+    /**
+     * 查看用户空间
+     * @param userId
+     * @return
+     */
+    public Map<String,Object> getUserRoom(int userId);
+}

@@ -5,6 +5,9 @@
 
 <configuration>
 
+    <typeAliases>
+        <package name="com.blog.entry"></package>
+    </typeAliases>
     <mappers>
 
     </mappers>

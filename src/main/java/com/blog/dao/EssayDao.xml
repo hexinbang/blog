@@ -3,6 +3,44 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="">
+<mapper namespace="com.blog.dao.EssayDao">
+
+    <resultMap id="essayResult" type="essay">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="content" column="content"></result>
+        <result property="date" column="date"></result>
+        <association property="user" column="user_id" select="com.blog.dao.UserDao.getUserById"></association>
+    </resultMap>
+
+    <select id="getAllEssay" resultMap="essayResult">
+        select * from essay
+    </select>
+
+    <select id="searchEssayByKey" parameterType="string" resultMap="essayResult">
+        select * from essay
+        <where>
+            title like %#{keyWord}%
+            or
+            content like %#{keyWord}%
+        </where>
+    </select>
+    <select id="getEssayByUserId" parameterType="int" resultMap="essayResult">
+        select * from essay where user_id=#{id};
+    </select>
+
+    <delete id="deleteEssay" parameterType="int">
+        delete from essay where id=#{id}
+    </delete>
+
+    <update id="updateEssay" parameterType="essay">
+        update essay
+        <set>
+            <if test="title!=''and title!=null">title=#{title},</if>
+            <if test="content!=''and content!=null">content=#{content},</if>
+        </set>
+        where id=#{id}
+    </update>
+
 
 </mapper>
