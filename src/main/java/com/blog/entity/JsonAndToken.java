@@ -1,6 +1,5 @@
-package com.blog.entry;
+package com.blog.entity;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
@@ -10,11 +9,11 @@ public class JsonAndToken {
     String token;
     int total;
 
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
 
-    public class Builder{
+    public static class Builder{
         Object data;
         String status;
         String token;

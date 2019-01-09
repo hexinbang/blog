@@ -176,10 +176,18 @@
           <artifactId>lombok</artifactId>
           <version>1.16.10</version>
       </dependency>
+<<<<<<< HEAD
       <dependency>
           <groupId>com.auth0</groupId>
           <artifactId>java-jwt</artifactId>
           <version>3.4.0</version>
+=======
+      <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+          <version>1.4.7</version>
+>>>>>>> a12e191dbbdbb1bebea52ff00ca840e374ab3bd5
       </dependency>
   </dependencies>
 

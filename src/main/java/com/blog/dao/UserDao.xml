@@ -4,7 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.blog.dao.UserDao">
+<<<<<<< HEAD
 <select id="FindUser" parameterType="com.blog.entry.User" resultType="com.blog.entry.User">
     select * from user where username = #{User.username} and password = #{User.password}
 </select>
+=======
+    <resultMap id="userResult" type="user">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="auth_id" property="authId"></result>
+        <result column="email" property="email"></result>
+        <result column="sex" property="sex"></result>
+        <result column="essay_id" property="essayId"></result>
+    </resultMap>
+    <select id="getUserById" resultMap="userResult">
+        select * from user where id=#{id}
+    </select>
+    <update id="updateUser" parameterType="userVo">
+        update user
+        <set>
+            <if test="password!='' and password!=null">password=#{password}</if>
+            <if test="authId!=''and authId!=null">auth_id=#{authId}</if>
+        </set>
+        where id=#{id}
+    </update>
+    <insert id="insertUser" parameterType="userVo" >
+        insert into
+        user
+        (username,password,auth_id,email,sex)
+        values
+       (#{username},#{password},#{authId},#{email},#{sex});
+    </insert>
+>>>>>>> a12e191dbbdbb1bebea52ff00ca840e374ab3bd5
 </mapper>
