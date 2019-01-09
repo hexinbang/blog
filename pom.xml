@@ -176,6 +176,12 @@
           <artifactId>lombok</artifactId>
           <version>1.16.10</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+          <version>1.4.7</version>
+      </dependency>
   </dependencies>
 
   <build>

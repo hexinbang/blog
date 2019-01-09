@@ -9,7 +9,7 @@
         <id property="id" column="id"></id>
         <result property="title" column="title"></result>
         <result property="content" column="content"></result>
-        <result property="date" column="date"></result>
+        <result property="time" column="time"></result>
         <association property="user" column="user_id" select="com.blog.dao.UserDao.getUserById"></association>
     </resultMap>
 
@@ -20,13 +20,13 @@
     <select id="searchEssayByKey" parameterType="string" resultMap="essayResult">
         select * from essay
         <where>
-            title like %#{keyWord}%
+            title like "%"#{keyWord}"%"
             or
-            content like %#{keyWord}%
+            content like "%"#{keyWord}"%"
         </where>
     </select>
     <select id="getEssayByUserId" parameterType="int" resultMap="essayResult">
-        select * from essay where user_id=#{id};
+        select * from essay where user_id=#{userId};
     </select>
 
     <delete id="deleteEssay" parameterType="int">
@@ -41,6 +41,4 @@
         </set>
         where id=#{id}
     </update>
-
-
 </mapper>

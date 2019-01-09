@@ -1,6 +1,7 @@
 package com.blog.service;
 
-import com.blog.entry.Essay;
+import com.blog.entity.Essay;
+import com.blog.vo.EssayVo;
 
 import java.util.List;
 
@@ -27,8 +28,15 @@ public interface EssayService {
 
     /**
      * 更新文章信息
-     * @param essay
+     * @param essayVo
      * @return
      */
-    public int updateEssay(Essay essay);
+    public int updateEssay(EssayVo essayVo);
+
+    /**
+     * 查找用户发表的文章
+     * @param userId
+     * @return
+     */
+    public List<Essay>getEssayByUserId(int userId);
 }

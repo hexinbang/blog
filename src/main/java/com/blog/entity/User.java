@@ -1,4 +1,4 @@
-package com.blog.entry;
+package com.blog.entity;
 
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
@@ -8,5 +8,8 @@ import org.apache.ibatis.type.Alias;
 public class User {
     private int id;
     private String username;
+    private String sex;
+    private String email;
+    private String essayId;
     private int authId;
 }

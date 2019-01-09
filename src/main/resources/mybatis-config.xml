@@ -6,9 +6,10 @@
 <configuration>
 
     <typeAliases>
-        <package name="com.blog.entry"></package>
+        <package name="com.blog.entity"></package>
+        <package name="com.blog.vo"></package>
     </typeAliases>
     <mappers>
-
+        <package name="com.blog.dao"></package>
     </mappers>
 </configuration>

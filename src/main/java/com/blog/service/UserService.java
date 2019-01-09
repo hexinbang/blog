@@ -1,5 +1,7 @@
 package com.blog.service;
 
+import com.blog.vo.UserVo;
+
 import java.util.Map;
 
 public interface UserService {
@@ -9,4 +11,11 @@ public interface UserService {
      * @return
      */
     public Map<String,Object> getUserRoom(int userId);
+
+    /**
+     * 添加用户
+     * @param userVo
+     * @return
+     */
+    public int insertUser(UserVo userVo,String code);
 }

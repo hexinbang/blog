@@ -1,4 +1,4 @@
-package com.blog.entry;
+package com.blog.entity;
 
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
@@ -11,6 +11,6 @@ public class Essay {
     private int id;
     private String title;
     private String content;
-    private Date date;
+    private String time;
     private User user;
 }
