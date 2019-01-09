@@ -1,4 +1,4 @@
 package com.blog.service;
 
-public class EssayService {
+public interface EssayService {
 }
