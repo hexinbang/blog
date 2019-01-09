@@ -4,16 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.blog.dao.RegisterDao">
-
-    <select id="getRequestMessage" parameterType="registerVo" resultType="integer">
-        select id from register
-        <where>
-            email_address=#{emailAddress}
-            and code=#{code}
-            and expire_time>#{expireTime}
-        </where>
-    </select>
-    <insert id="insertRequestMessage" parameterType="registerVo">
+<select id="getRequestMessage" parameterType="registerVo" resultType="integer">
+    select id from register
+    <where>
+        email_address=#{emailAddress}
+        and code=#{code}
+        and expire_time>#{expireTime}
+    </where>
+</select>
+<insert id="insertRequestMessage" parameterType="registerVo">
         insert into register(email_address,code,expire_time) values(#{emailAddress},#{code},#{expireTime})
     </insert>
 </mapper>
