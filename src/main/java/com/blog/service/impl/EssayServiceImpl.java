@@ -1,5 +1,6 @@
 package com.blog.service.impl;
 
+
 import com.blog.dao.EssayDao;
 import com.blog.entity.Essay;
 import com.blog.service.EssayService;
@@ -19,7 +20,7 @@ public class EssayServiceImpl implements EssayService {
     @Autowired
     MailUtil mailUtil;
 
-    public List<Essay>getAllEssay(){
+    public List<Essay> getAllEssay(){
         return essayDao.getAllEssay();
     }
 
@@ -38,5 +39,10 @@ public class EssayServiceImpl implements EssayService {
     @Override
     public List<Essay> getEssayByUserId(int userId) {
         return essayDao.getEssayByUserId(userId);
+    }
+
+    @Override
+    public int insertEssay(EssayVo essayVo) {
+        return essayDao.insertEssay(essayVo);
     }
 }

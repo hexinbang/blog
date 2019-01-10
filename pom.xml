@@ -181,6 +181,7 @@
           <groupId>javax.mail</groupId>
           <artifactId>mail</artifactId>
           <version>1.4.7</version>
+>>>>>>> a12e191dbbdbb1bebea52ff00ca840e374ab3bd5
       </dependency>
   </dependencies>
 

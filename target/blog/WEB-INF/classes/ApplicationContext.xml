@@ -23,6 +23,10 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
+<<<<<<< HEAD
+=======
+
+>>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
     </bean>
@@ -32,7 +36,11 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+<<<<<<< HEAD
         <property name="basePackage" value="com.blog.dao"></property>
+=======
+        <property name="basePackage" value="com.hxb.dao"></property>
+>>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
         <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"></property>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
     </bean>
@@ -40,7 +48,11 @@
     <context:component-scan base-package="com.blog"></context:component-scan>
     <mvc:annotation-driven></mvc:annotation-driven>
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<<<<<<< HEAD
     <context:property-placeholder location="classpath*:config.properties" ignore-unresolvable="true"></context:property-placeholder>
+=======
+
+>>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20971520"></property>

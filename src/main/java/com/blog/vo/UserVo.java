@@ -10,6 +10,7 @@ import org.apache.ibatis.type.Alias;
 @Data
 @Alias("userVo")
 public class UserVo {
+    int id;
     String username;
     String password;
     String email;

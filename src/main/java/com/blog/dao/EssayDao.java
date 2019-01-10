@@ -13,4 +13,5 @@ public interface EssayDao {
     public List<Essay>getEssayByUserId(int userId);
     public int deleteEssay(int id);
     public int updateEssay(EssayVo essayVo);
+    public int insertEssay(EssayVo essayVo);
 }

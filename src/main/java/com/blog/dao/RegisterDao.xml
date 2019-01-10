@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.blog.dao.RegisterDao">
-<select id="getRequestMessage" parameterType="registerVo" resultType="integer">
+<select id="getRequestMessage" parameterType="registerVo" resultType="java.lang.Integer">
     select id from register
     <where>
         email_address=#{emailAddress}

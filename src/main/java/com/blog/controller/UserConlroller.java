@@ -1,8 +1,11 @@
 package com.blog.controller;
 
+import com.blog.dao.UserDao;
 import com.blog.entity.JsonAndToken;
-import com.blog.service.impl.UserServiceImpl;
+import com.blog.entity.User;
+import com.blog.service.UserService;
 import com.blog.service.impl.RegisterService;
+import com.blog.service.impl.UserServiceImpl;
 import com.blog.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ public class UserConlroller{
     RegisterService registerService;
 
     @ResponseBody
+    @RequestMapping(value = "/getUserRoom",method = {RequestMethod.GET})
     public JsonAndToken getUserRoom(@RequestParam int id){
         return  JsonAndToken.builder()
                 .data(userService.getUserRoom(id))
@@ -39,5 +43,9 @@ public class UserConlroller{
                 .data(userService.insertUser(userVo,code))
                 .status("success")
                 .build();
+    }
+    @RequestMapping("/FindUser")
+    public User FindUser(@RequestBody UserVo userVo) {
+        return userService.FindUser(userVo);
     }
 }

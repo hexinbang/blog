@@ -5,11 +5,16 @@
 
 <configuration>
 
+<<<<<<< HEAD
     <typeAliases>
         <package name="com.blog.entity"></package>
         <package name="com.blog.vo"></package>
     </typeAliases>
     <mappers>
         <package name="com.blog.dao"></package>
+=======
+    <mappers>
+
+>>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
     </mappers>
 </configuration>

@@ -1,7 +1,9 @@
 package com.blog.service.impl;
 
+
 import com.blog.dao.EssayDao;
 import com.blog.dao.UserDao;
+import com.blog.entity.User;
 import com.blog.service.UserService;
 import com.blog.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int insertUser(UserVo userVo,String code) {
+    public int insertUser(UserVo userVo, String code) {
         if(registerService.getValidateCodeIds(userVo.getEmail(),code))
         return userDao.insertUser(userVo);
         return 0;
     }
+
+    @Override
+    public User FindUser(UserVo userVo) {
+        return userDao.FindUser(userVo);
+    }
+
+
 }
 

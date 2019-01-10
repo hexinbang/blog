@@ -2,7 +2,10 @@ package com.blog.service;
 
 import com.blog.entity.Essay;
 import com.blog.vo.EssayVo;
+import com.blog.entity.Essay;
+import com.blog.vo.EssayVo;
 
+import javax.net.ssl.ExtendedSSLSession;
 import java.util.List;
 
 public interface EssayService {
@@ -10,7 +13,7 @@ public interface EssayService {
      * 获取所有文章
      * @return
      */
-    public List<Essay>getAllEssay();
+    public List<Essay> getAllEssay();
 
     /**
      * 根据关键字查询文章
@@ -39,4 +42,11 @@ public interface EssayService {
      * @return
      */
     public List<Essay>getEssayByUserId(int userId);
+
+    /**
+     * 添加文章
+     * @param essayVo
+     * @return
+     */
+    public int insertEssay(EssayVo essayVo);
 }

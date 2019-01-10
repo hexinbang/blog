@@ -1,8 +1,9 @@
 package com.blog.service;
-
+import com.blog.entity.User;
 import com.blog.vo.UserVo;
 
 import java.util.Map;
+
 
 public interface UserService {
     /**
@@ -17,5 +18,7 @@ public interface UserService {
      * @param userVo
      * @return
      */
-    public int insertUser(UserVo userVo,String code);
+    public int insertUser(UserVo userVo, String code);
+
+    User FindUser(UserVo userVo);
 }
