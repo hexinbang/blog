@@ -1,14 +1,13 @@
 package com.blog.service.impl;
 
 import com.blog.dao.RegisterDao;
-import com.blog.service.util.MailUtil;
+import com.blog.util.MailUtil;
 import com.blog.vo.RegisterVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author hxb

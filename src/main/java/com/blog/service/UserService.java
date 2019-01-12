@@ -11,14 +11,26 @@ public interface UserService {
      * @param userId
      * @return
      */
-    public Map<String,Object> getUserRoom(int userId);
+    Map<String,Object> getUserRoom(int userId);
 
     /**
      * 添加用户
      * @param userVo
      * @return
      */
-    public int insertUser(UserVo userVo, String code);
+    int insertUser(UserVo userVo);
 
-    User FindUser(UserVo userVo);
+    /**
+     * 登陆查找用户
+     * @param userVo
+     * @return
+     */
+    User findUser(UserVo userVo);
+
+    /**
+     * 获取token
+     * @param user
+     * @return
+     */
+    String createToken(User user);
 }

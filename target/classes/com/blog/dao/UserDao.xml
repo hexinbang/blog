@@ -23,4 +23,14 @@
         </set>
         where id=#{id}
     </update>
+    <insert id="insertUser" parameterType="userVo" >
+        insert into
+        user
+        (username,password,auth_id,email,sex)
+        values
+       (#{username},#{password},#{authId},#{email},#{sex});
+    </insert>
+    <select id="FindUser" parameterType="com.blog.vo.UserVo" resultMap="userResult">
+    select * from user where username = #{userVo.username} and password = #{userVo.password}
+    </select>
 </mapper>

@@ -5,6 +5,7 @@ import com.blog.dao.EssayDao;
 import com.blog.dao.UserDao;
 import com.blog.entity.User;
 import com.blog.service.UserService;
+import com.blog.util.TokenUtil;
 import com.blog.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,15 +30,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int insertUser(UserVo userVo, String code) {
-        if(registerService.getValidateCodeIds(userVo.getEmail(),code))
+    public int insertUser(UserVo userVo) {
+        if(registerService.getValidateCodeIds(userVo.getEmail(),userVo.getCode()))
         return userDao.insertUser(userVo);
         return 0;
     }
 
     @Override
-    public User FindUser(UserVo userVo) {
+    public User findUser(UserVo userVo) {
         return userDao.FindUser(userVo);
+    }
+
+    @Override
+    public String createToken(User user) {
+        if(user!=null){
+            try {
+                return TokenUtil.CreatToken(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
 

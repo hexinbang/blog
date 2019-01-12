@@ -14,6 +14,7 @@ public class UserVo {
     String username;
     String password;
     String email;
+    String code;
     int authId;
     String sex;
 }

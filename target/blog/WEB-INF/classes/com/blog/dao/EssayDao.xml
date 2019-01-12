@@ -41,4 +41,8 @@
         </set>
         where id=#{id}
     </update>
+
+    <insert id="insertEssay" parameterType="essayVo">
+        insert into essay (title,content,user_id,time)values (#{title},#{content},#{userId},#{time})
+    </insert>
 </mapper>

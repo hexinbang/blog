@@ -4,12 +4,13 @@ package com.blog.service.impl;
 import com.blog.dao.EssayDao;
 import com.blog.entity.Essay;
 import com.blog.service.EssayService;
-import com.blog.service.util.MailUtil;
+import com.blog.util.MailUtil;
 import com.blog.vo.EssayVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import javax.mail.MessagingException;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -43,6 +44,9 @@ public class EssayServiceImpl implements EssayService {
 
     @Override
     public int insertEssay(EssayVo essayVo) {
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String time=simpleDateFormat.format(new Date());
+        essayVo.setTime(time);
         return essayDao.insertEssay(essayVo);
     }
 }

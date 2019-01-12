@@ -1,5 +1,7 @@
 package learn;
 
+import com.blog.util.MailUtil;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -33,10 +35,5 @@ public class UseOutExe {
 //        }finally {
 //            transport.close();;
 //        }
-
-        Date date=new Date();
-        String string="1546827984563";
-        long num=Long.parseLong(string)+15*60*1000;
-        System.out.println(date.getTime()>num);
     }
 }

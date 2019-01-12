@@ -13,54 +13,49 @@
        http://www.springframework.org/schema/tool/spring-tool.xsd
        http://www.springframework.org/schema/aop
 	   http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--连接池-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://47.107.174.79:3306/blog"/>
+        <property name="url" value="${jdbc.url}"/>
         <property name="username" value="hxb"/>
         <property name="password" value="hxb"/>
     </bean>
+    <!--配置sqlSession-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" scope="singleton">
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
-<<<<<<< HEAD
-=======
 
->>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
     </bean>
-
+    <!--事务管理-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-
+    <!--扫描dao层并注入sqlSession实例-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-<<<<<<< HEAD
         <property name="basePackage" value="com.blog.dao"></property>
-=======
-        <property name="basePackage" value="com.hxb.dao"></property>
->>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
         <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"></property>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
     </bean>
+
     <context:annotation-config></context:annotation-config>
+    <!--扫描包下的bean-->
     <context:component-scan base-package="com.blog"></context:component-scan>
+    <!--启动mvc-->
     <mvc:annotation-driven></mvc:annotation-driven>
+    <!--启动aspectj-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-<<<<<<< HEAD
+    <!--加载配置文件-->
     <context:property-placeholder location="classpath*:config.properties" ignore-unresolvable="true"></context:property-placeholder>
-=======
-
->>>>>>> aeedb5e7f6a5226ed2486ba4fd7c942afa45790b
-
+    <!--限制mvc文件下载大小-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20971520"></property>
         <property name="defaultEncoding" value="UTF-8"></property>
         <property name="resolveLazily" value="true"></property>
     </bean>
-
-    <mvc:annotation-driven/>
+    <!--json转换-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
@@ -68,5 +63,4 @@
             </list>
         </property>
     </bean>
-
 </beans>

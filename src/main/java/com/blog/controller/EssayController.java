@@ -17,6 +17,7 @@ public class EssayController {
     EssayService essayService;
 
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/getEssay",method = {RequestMethod.GET})
     public JsonAndToken getAllEssay(){
         List<Essay> essayList= essayService.getAllEssay();
@@ -28,6 +29,7 @@ public class EssayController {
     }
 
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/searchEssay",method = RequestMethod.GET)
     public JsonAndToken searchEssay(@RequestParam String keyWord){
         List<Essay>essayList= essayService.searchEssayByKey(keyWord);
@@ -39,6 +41,7 @@ public class EssayController {
     }
 
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/deleteEssay",method = {RequestMethod.GET})
     public JsonAndToken deleteEssay(@RequestParam int id){
         return  JsonAndToken.builder()
@@ -48,6 +51,7 @@ public class EssayController {
     }
 
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/updateEssay",method = {RequestMethod.POST})
     public JsonAndToken updateEssay(@RequestBody EssayVo essayVo){
         return JsonAndToken.builder()
@@ -57,6 +61,7 @@ public class EssayController {
     }
 
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/getEssayByUserId",method = {RequestMethod.GET})
     public JsonAndToken getEssayByUserId(@RequestParam int userId){
         List<Essay>essayList= essayService.getEssayByUserId(userId);
@@ -67,6 +72,7 @@ public class EssayController {
                 .build();
     }
     @ResponseBody
+    @CrossOrigin
     @RequestMapping(value = "/insertEssay",method = {RequestMethod.POST})
     public JsonAndToken insertEssay(@RequestBody EssayVo essayVo){
         return JsonAndToken.builder()
