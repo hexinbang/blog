@@ -13,7 +13,7 @@ public class UserVo {
     int id;
     String username;
     String password;
-    String email;
+    String name;
     String code;
     int authId;
     String sex;

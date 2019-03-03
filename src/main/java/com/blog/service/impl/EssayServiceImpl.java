@@ -30,7 +30,7 @@ public class EssayServiceImpl implements EssayService {
     }
 
     public int deleteEssay(int id){
-        return essayDao.deleteEssay(id);
+        return essayDao.deleteEssayByAdmin(id);
     }
 
     public int updateEssay(EssayVo essayVo){

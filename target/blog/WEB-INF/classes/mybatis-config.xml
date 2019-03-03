@@ -8,7 +8,16 @@
         <package name="com.blog.entity"></package>
         <package name="com.blog.vo"></package>
     </typeAliases>
-    <mappers>
-        <package name="com.blog.dao"></package>
-    </mappers>
+
+    <!--mapper文件跟dao接口在同一包下-->
+    <!--<mappers>-->
+        <!--<package name="com.blog.dao.mapper"></package>-->
+    <!--</mappers>-->
+
+    <!--mapper文件跟dao类可分开，但一个resource只能配置一个mapper-->
+    <!--<mappers>-->
+        <!--<mapper resource="com/blog/dao/mapper/EssayDao.xml"></mapper>-->
+    <!--</mappers>-->
+    <!--在spring上下文中配置mybatis文件-->
+
 </configuration>

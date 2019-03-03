@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -31,26 +32,48 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insertUser(UserVo userVo) {
-        if(registerService.getValidateCodeIds(userVo.getEmail(),userVo.getCode()))
+        if(registerService.getValidateCodeIds(userVo.getUsername(),userVo.getCode()))
         return userDao.insertUser(userVo);
         return 0;
     }
 
     @Override
     public User findUser(UserVo userVo) {
-        return userDao.FindUser(userVo);
+        return userDao.findUser(userVo);
     }
 
     @Override
     public String createToken(User user) {
         if(user!=null){
             try {
-                return TokenUtil.CreatToken(user);
+                return TokenUtil.CreateToken(user);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return null;
+    }
+
+    @Override
+    public int updateUserByAdmin(UserVo userVo) {
+        return userDao.updateUserByAdmin(userVo);
+    }
+
+    @Override
+    public int updateUserByUser(UserVo userVo) {
+        return userDao.updateUserByUser(userVo);
+    }
+
+    @Override
+    public List<User> searchUserByKey(String keyWord) {
+        if(keyWord!=null)
+        return userDao.searchUserByKey(keyWord);
+        return null;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userDao.getUsers();
     }
 
 

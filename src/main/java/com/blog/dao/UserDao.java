@@ -6,8 +6,11 @@ import java.util.List;
 
 @Repository
 public interface UserDao {
-    public int updateUser(UserVo userVo);
+    public int updateUserByAdmin(UserVo userVo);
+    public int updateUserByUser(UserVo userVo);
     public User getUserById(int id);
     public int insertUser(UserVo userVo);
-    public User FindUser(UserVo userVo);
+    public User findUser(UserVo userVo);
+    public List<User>searchUserByKey(String keyWord);
+    public List<User>getUsers();
 }

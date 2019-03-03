@@ -22,7 +22,7 @@ public class MailUtil {
     private  String host;
 
     @Value("${email.port}")
-    private  int port;
+    private  Integer port;
 
     @Value("${email.authorizationCode}")
     private  String authorizationCode;

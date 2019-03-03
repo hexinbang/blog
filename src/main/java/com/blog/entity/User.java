@@ -9,7 +9,6 @@ public class User {
     private int id;
     private String username;
     private String sex;
-    private String email;
-    private String essayId;
-    private int authId;
+    private String name;
+    private int roleId;
 }

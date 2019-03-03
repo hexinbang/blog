@@ -6,7 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.blog.entity.User;
-import org.springframework.stereotype.Service;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ public class TokenUtil {
         * jwt结构：header，payload，signature
         * @param user_id
         * */
-         public static String CreatToken(User user)throws Exception{
+         public static String CreateToken(User user)throws Exception{
              Date iatDate=new Date();
              //expire time到期时间
              Calendar nowTime=Calendar.getInstance();
@@ -38,7 +38,7 @@ public class TokenUtil {
                      .withClaim("iss","Service")
                      .withClaim("aud","Web")
                      .withClaim("userId",user.getId())
-                     .withClaim("authId",user.getAuthId())
+                     .withClaim("roleId",user.getRoleId())
                      .withIssuedAt(iatDate)//sign time
                      .withExpiresAt(expiresDate)//expire time
                      .sign(Algorithm.HMAC256(SECRET));//signature
@@ -56,7 +56,7 @@ public class TokenUtil {
                  JWTVerifier verifier=JWT.require(Algorithm.HMAC256(SECRET)).build();
                  jwt=verifier.verify(token);
              }catch (Exception e){
-                 e.printStackTrace();
+                 return null;
              }
              return jwt.getClaims();
          }

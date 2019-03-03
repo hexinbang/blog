@@ -181,8 +181,17 @@
           <groupId>javax.mail</groupId>
           <artifactId>mail</artifactId>
           <version>1.4.7</version>
->>>>>>> a12e191dbbdbb1bebea52ff00ca840e374ab3bd5
       </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>4.0.5.RELEASE</version>
+          <scope>test</scope>
+      </dependency>
+
+
   </dependencies>
 
   <build>
@@ -220,5 +229,13 @@
         </plugin>
       </plugins>
     </pluginManagement>
+      <resources>
+          <resource>
+              <directory>src/main/java</directory>
+              <includes>
+                  <include>**/*.xml</include>
+              </includes>
+          </resource>
+      </resources>
   </build>
 </project>
