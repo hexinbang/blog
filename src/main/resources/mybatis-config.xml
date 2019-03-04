@@ -16,7 +16,7 @@
 
     <!--mapper文件跟dao类可分开，但一个resource只能配置一个mapper-->
     <!--<mappers>-->
-        <!--<mapper resource="com/blog/dao/mapper/EssayDao.xml"></mapper>-->
+        <!--<mapper resource="com/blog/dao/mapper/EssayMapper.xml"></mapper>-->
     <!--</mappers>-->
     <!--在spring上下文中配置mybatis文件-->
 

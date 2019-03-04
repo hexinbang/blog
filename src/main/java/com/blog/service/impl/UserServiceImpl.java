@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     EssayDao essayDao;
     @Autowired
-    RegisterService registerService;
+    RegisterServiceImpl registerServiceImpl;
 
     public Map<String,Object> getUserRoom(int userId){
         Map map=new HashMap();
@@ -32,7 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insertUser(UserVo userVo) {
-        if(registerService.getValidateCodeIds(userVo.getUsername(),userVo.getCode()))
+        userVo.setRoleId(2);
+        if(registerServiceImpl.getValidateCodeIds(userVo.getUsername(),userVo.getCode()))
         return userDao.insertUser(userVo);
         return 0;
     }

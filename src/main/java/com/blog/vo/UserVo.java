@@ -15,6 +15,6 @@ public class UserVo {
     String password;
     String name;
     String code;
-    int authId;
+    int roleId;
     String sex;
 }

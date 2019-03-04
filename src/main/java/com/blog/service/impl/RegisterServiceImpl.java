@@ -1,6 +1,7 @@
 package com.blog.service.impl;
 
 import com.blog.dao.RegisterDao;
+import com.blog.service.RegisterService;
 import com.blog.util.MailUtil;
 import com.blog.vo.RegisterVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 
 @Service
-public class RegisterService {
+public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private RegisterDao registerDao;

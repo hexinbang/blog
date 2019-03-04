@@ -4,7 +4,7 @@ import com.auth0.jwt.interfaces.Claim;
 import com.blog.entity.User;
 import com.blog.service.EssayService;
 import com.blog.service.UserService;
-import com.blog.service.impl.RegisterService;
+import com.blog.service.impl.RegisterServiceImpl;
 import com.blog.util.MailUtil;
 import com.blog.util.TokenUtil;
 import com.blog.vo.EssayVo;
@@ -23,7 +23,7 @@ import java.util.Map;
  * @date 2019/1/12 14:40
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:dispatcher-servlet.xml")
+@ContextConfiguration(locations = {"classpath:dispatcher-servlet.xml", "classpath:spring-mybatis.xml"})
 public class ServiceTest {
     @Autowired
     MailUtil mailUtil;
@@ -32,7 +32,7 @@ public class ServiceTest {
     @Autowired
     EssayService essayService;
     @Autowired
-    RegisterService registerService;
+    RegisterServiceImpl registerServiceImpl;
 
     @Test
     public void test1(){
@@ -41,7 +41,7 @@ public class ServiceTest {
         userVo.setPassword("11111");
         userVo.setSex("男");
         userVo.setCode("2719");
-        userVo.setAuthId(2);
+        userVo.setRoleId(2);
         userService.insertUser(userVo);
     }
     @Test
