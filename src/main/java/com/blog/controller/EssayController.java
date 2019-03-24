@@ -45,7 +45,16 @@ public class EssayController {
     @RequestMapping(value = "/deleteEssay",method = {RequestMethod.GET})
     public JsonAndToken deleteEssay(@RequestParam int id){
         return  JsonAndToken.builder()
-                .total(essayService.deleteEssay(id))
+                .total(essayService.deleteEssayByAdmin(id))
+                .status("success")
+                .build();
+    }
+    @ResponseBody
+    @CrossOrigin
+    @RequestMapping(value = "/deleteEssayByUser",method = {RequestMethod.GET})
+    public JsonAndToken deleteEssayByUser(@RequestParam int id){
+        return JsonAndToken.builder()
+                .data(essayService.deleteEssayByUser(id))
                 .status("success")
                 .build();
     }
@@ -55,7 +64,7 @@ public class EssayController {
     @RequestMapping(value = "/updateEssay",method = {RequestMethod.POST})
     public JsonAndToken updateEssay(@RequestBody EssayVo essayVo){
         return JsonAndToken.builder()
-                .total(essayService.updateEssay(essayVo))
+                .data(essayService.updateEssay(essayVo))
                 .status("success")
                 .build();
     }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -78,8 +80,10 @@ public class UserController {
     @CrossOrigin
     @RequestMapping(value = "/searchUser",method = {RequestMethod.GET})
     public JsonAndToken searchUser(@RequestParam String keyWord){
+        List<User>userList=userService.searchUserByKey(keyWord);
         return  JsonAndToken.builder()
-                .data(userService.searchUserByKey(keyWord))
+                .data(userList)
+                .total(userList.size())
                 .status("success")
                 .build();
     }
@@ -87,8 +91,10 @@ public class UserController {
     @CrossOrigin
     @RequestMapping(value = "/getUsers",method = {RequestMethod.GET})
     public JsonAndToken getUsers(){
+        List<User>userList=userService.getUsers();
         return JsonAndToken.builder()
-                .data(userService.getUsers())
+                .data(userList)
+                .total(userList.size())
                 .status("success")
                 .build();
     }

@@ -1,4 +1,4 @@
-package learn;
+package blog;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.blog.entity.User;

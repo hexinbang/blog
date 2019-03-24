@@ -23,11 +23,18 @@ public interface EssayService {
      List<Essay>searchEssayByKey(String keyWord);
 
     /**
-     * 删除文章
+     * 管理员删除文章
      * @param id
      * @return
      */
-     int deleteEssay(int id);
+     int deleteEssayByAdmin(int id);
+
+    /**
+     * 用户删除自己文章
+     * @param id
+     * @return
+     */
+     int deleteEssayByUser(int id);
 
     /**
      * 更新文章信息

@@ -35,6 +35,7 @@
         <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"></property>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
     </bean>
+
     <!--加载配置文件-->
     <context:property-placeholder location="classpath*:config.properties" ignore-unresolvable="true"></context:property-placeholder>
 </beans>

@@ -1,6 +1,7 @@
 package com.blog.service.impl;
 
 
+import com.blog.AOP.AopAspect;
 import com.blog.dao.EssayDao;
 import com.blog.entity.Essay;
 import com.blog.service.EssayService;
@@ -29,8 +30,14 @@ public class EssayServiceImpl implements EssayService {
         return essayDao.searchEssayByKey(keyWord);
     }
 
-    public int deleteEssay(int id){
+    public int deleteEssayByAdmin(int id){
         return essayDao.deleteEssayByAdmin(id);
+    }
+
+    public int deleteEssayByUser(int id){
+        EssayVo essayVo=new EssayVo();
+        essayVo.setUserId(AopAspect.userId);
+        return essayDao.deleteEssayByUser(essayVo);
     }
 
     public int updateEssay(EssayVo essayVo){

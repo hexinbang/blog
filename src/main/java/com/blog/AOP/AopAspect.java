@@ -23,6 +23,7 @@ import java.util.Map;
 @Component
 @Aspect
 public class AopAspect {
+    public static Integer userId=null;
 
     @Autowired(required = false)
     private HttpServletRequest request;
@@ -52,7 +53,10 @@ public class AopAspect {
         Integer roleId;
         Map<String,Claim> claimMap=TokenUtil.verifyToken(token);
         if(claimMap==null)roleId=3;
-        else roleId=claimMap.get("roleId").asInt();
+        else {
+            roleId=claimMap.get("roleId").asInt();
+            this.userId=claimMap.get("userId").asInt();
+        }
         if(roleId==null)roleId=3;
         String url=request.getMethod()+":"+request.getRequestURI();
         Integer authId=userAuthDao.getIdByUrl(url);

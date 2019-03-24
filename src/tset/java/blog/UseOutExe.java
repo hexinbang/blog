@@ -1,13 +1,6 @@
-package learn;
-
-import com.blog.util.MailUtil;
+package blog;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
 
 /**
  * @author hxb
