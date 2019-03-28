@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -20,14 +21,14 @@ import java.util.Map;
  * @date 2019/3/2 18:38
  */
 
-@Component
+@Service
 @Aspect
 public class AopAspect {
     public static Integer userId=null;
 
     @Autowired(required = false)
     private HttpServletRequest request;
-    @Autowired()
+    @Autowired(required = false)
     private UserAuthDao userAuthDao;
 
     @Pointcut("execution(* com.blog.controller.*Controller.*(..))")
